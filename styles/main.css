@@ -10,30 +10,6 @@
     max-width: 64rem;
 }
 
-/* Medium and small screens (640px) */
-@media (min-width: 640px) {
-  html {
-    font-size: 112%;
-  }
-  .column {
-         float: left;
-         padding-left: 1rem;
-         padding-right: 1rem;
-}
-  .column.full { width: 100%; }
-  .column.two-thirds { width: 66.7%; }
-  .column.half { width: 50%; }
-  .column.third { width: 33.3%; }
-  .column.fourth { width: 25%; }
-  .column.flow-opposite { float: right; }
-
-/* Large screens (1024px) */
-@media (min-width: 1024px) {
-  html{
-    font-size: 120%;
-  }
-}
-
 html {
      height: 100%; /* makes sure our HTML takes up 100% of the browser window */
      font-size: 100%;
@@ -63,4 +39,28 @@ html {
 
   .clearfix::after {
    clear: both;
+ }
+
+ /* Medium and small screens (640px) */
+ @media (min-width: 640px) {
+   html {
+     font-size: 112%;
+   }
+   .column {
+          float: left;
+          padding-left: 1rem;
+          padding-right: 1rem;
+ }
+   .column.full { width: 100%; }
+   .column.two-thirds { width: 66.7%; }
+   .column.half { width: 50%; }
+   .column.third { width: 33.3%; }
+   .column.fourth { width: 25%; }
+   .column.flow-opposite { float: right; }
+
+ /* Large screens (1024px) */
+ @media (min-width: 1024px) {
+   html{
+     font-size: 120%;
+   }
  }
