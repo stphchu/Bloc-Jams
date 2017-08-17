@@ -24,16 +24,16 @@ html {
   .navbar {
     position: relative;
      padding: 0.5rem;
-     /* #1 */
-     background-color: rgba(101,18,95,0.5);
-     /* #2 */
-     z-index: 1;
+    /* #1 */
+    background-color: rgba(101,18,95,0.5);
+    /* #2 */
+    z-index: 1;
  }
 
  .navbar .logo {
      position: relative; /* positioning will be explained in a resource */
      left: 2rem;
-     cursor: pointer;  /* produces the finger-pointer icon when you hover over the logo */
+     cursor: pointer; /* produces the finger-pointer icon when you hover over the logo */
  }
 
  .navbar .links-container {
@@ -62,14 +62,10 @@ html {
      text-decoration: none;
      cursor: pointer;
  }
-    /* #5 */
+
+   /* #5 */
  .links-container .navbar-link:hover {
      color: rgb(233,50,117);
- }
-
- .links-container .navbar-link:active {
-   color: rgb(233,50,117);
-   background-color: white;
  }
 
  .clearfix::before,
