@@ -154,6 +154,19 @@ var clickHandler = function() {
     $lastSongNumberCell.html(lastSongNumber);
 };
 
+  var togglePlayFromPlayerBar = function(){
+    if (currentSoundFile.isPaused()){
+      currentSoundFile.play();
+      $(this).html(playerBarPauseButton);
+      
+      }
+    else if (currentSoundFile){
+      currentSoundFile.pause();
+      $(this).html(playerBarPlayButton);
+
+    };
+  };
+
 // Album button templates
 var playButtonTemplate = '<a class="album-song-button"><span class="ion-play"></span></a>';
 var pauseButtonTemplate = '<a class="album-song-button"><span class="ion-pause"></span></a>';
@@ -169,11 +182,13 @@ var currentVolume = 80;
 
 var $previousButton = $('.main-controls .previous');
 var $nextButton = $('.main-controls .next');
+var $pausePlayButton = $('.main-controls .play-pause');
 
 $(document).ready(function() {
   setCurrentAlbum(albumPicasso);
   $previousButton.click(previousSong);
   $nextButton.click(nextSong);
+  $pausePlayButton.click(togglePlayFromPlayerBar);
 });
 
 var albums = [albumPicasso, albumMarconi, albumHalsey];
