@@ -158,12 +158,12 @@ var clickHandler = function() {
     if (currentSoundFile.isPaused()){
       currentSoundFile.play();
       $(this).html(playerBarPauseButton);
-      
+      $(getSongNumberCell(currentlyPlayingSongNumber)).html(pauseButtonTemplate);
       }
     else if (currentSoundFile){
       currentSoundFile.pause();
       $(this).html(playerBarPlayButton);
-
+      $(getSongNumberCell(currentlyPlayingSongNumber)).html(playButtonTemplate);
     };
   };
 
