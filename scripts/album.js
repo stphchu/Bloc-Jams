@@ -190,7 +190,7 @@ var clickHandler = function() {
     $('.currently-playing .artist-name').text(currentAlbum.artist);
     $('.currently-playing .artist-song-mobile').text(currentSongFromAlbum.title + " - " + currentAlbum.artist);
     $('.main-controls .play-pause').html(playerBarPauseButton);
-    setTotalTimeInPlayerBar(currentSongFromAlbum.duration);
+    setTotalTimeInPlayerBar(filterTimeCode(currentSongFromAlbum.duration));
   };
 
   var nextSong = function() {
