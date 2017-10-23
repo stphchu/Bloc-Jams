@@ -3,7 +3,7 @@
         '<tr class="album-view-song-item">'
       + '  <td class="song-item-number" data-song-number="' + songNumber + '">' + songNumber + '</td>'
       + '  <td class="song-item-title">' + songName + '</td>'
-      + '  <td class="song-item-duration">' + songLength + '</td>'
+      + '  <td class="song-item-duration">' + filterTimeCode(songLength) + '</td>'
       + '</tr>'
       ;
     var $row = $(template);
@@ -77,8 +77,6 @@ var clickHandler = function() {
       };
   }
 
-
-
 };
 
   var onHover = function(event) {
@@ -126,9 +124,11 @@ var clickHandler = function() {
             var seekBarFillRatio = this.getTime() / this.getDuration();
             var $seekBar = $('.seek-control .seek-bar');
 
-             updateSeekPercentage($seekBar, seekBarFillRatio);
+            updateSeekPercentage($seekBar, seekBarFillRatio);
+            setCurrentTimeInPlayerBar(filterTimeCode(currentSoundFile.getTime()));
          });
      }
+
  };
 
  var updateSeekPercentage = function($seekBar, seekBarFillRatio) {
@@ -190,6 +190,7 @@ var clickHandler = function() {
     $('.currently-playing .artist-name').text(currentAlbum.artist);
     $('.currently-playing .artist-song-mobile').text(currentSongFromAlbum.title + " - " + currentAlbum.artist);
     $('.main-controls .play-pause').html(playerBarPauseButton);
+    setTotalTimeInPlayerBar(currentSongFromAlbum.duration);
   };
 
   var nextSong = function() {
@@ -246,6 +247,24 @@ var clickHandler = function() {
       $(getSongNumberCell(currentlyPlayingSongNumber)).html(playButtonTemplate);
     };
   };
+
+var setCurrentTimeInPlayerBar = function(currentTime){
+  $('.seek-control .current-time').text(currentTime);
+};
+
+var setTotalTimeInPlayerBar = function(totalTime){
+  $('.seek-control .total-time').text(totalTime);
+};
+
+var filterTimeCode = function(timeInSeconds){
+  var seconds = Math.floor(parseFloat(timeInSeconds%60));
+  var minutes = Math.floor(timeInSeconds/60);
+    if (seconds < 10){
+      seconds = '0'+seconds;
+    };
+  var formatedTime = minutes + ":" + seconds;
+  return formatedTime;
+};
 
 // Album button templates
 var playButtonTemplate = '<a class="album-song-button"><span class="ion-play"></span></a>';
